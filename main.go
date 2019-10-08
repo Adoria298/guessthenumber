@@ -1,3 +1,4 @@
+// based on freshman.tech/golang-guess/
 package main
 
 import (
