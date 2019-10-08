@@ -15,27 +15,33 @@ func main() {
 	fmt.Println("Please input your guess.")
 
 	secretNumber := generateRandomInteger(1, 100)
-	fmt.Println("The secret number is: ", secretNumber)
 
-	reader := bufio.NewReader(os.Stdin)
-	input, _ := reader.ReadString('\n')
-	input = strings.TrimSuffix(input, "\r\n")
+	var attempts int
+	for {
+		attempts++
+		fmt.Println("Please input your guess.")
 
-	guess, error := strconv.Atoi(input) // convert to integer
-	if error != nil {
-		fmt.Println("Invalid input. Please enter an integer.")
-		fmt.Println(error)
-		return
-	}
+		reader := bufio.NewReader(os.Stdin)
+		input, _ := reader.ReadString('\n')
+		input = strings.TrimSuffix(input, "\r\n")
 
-	fmt.Println("Your guess is: ", guess)
+		guess, error := strconv.Atoi(input) // convert to integer
+		if error != nil {
+			fmt.Println("Invalid input. Please enter an integer.")
+			fmt.Println(error)
+			continue
+		}
 
-	if guess > secretNumber {
-		fmt.Println("Your guess is bigger than the secret number.")
-	} else if guess < secretNumber {
-		fmt.Println("Your guess is smalled than the secret number.")
-	} else {
-		fmt.Println("Correct. Game over.")
+		fmt.Println("Your guess is: ", guess)
+
+		if guess > secretNumber {
+			fmt.Println("Your guess is bigger than the secret number.")
+		} else if guess < secretNumber {
+			fmt.Println("Your guess is smaller than the secret number.")
+		} else {
+			fmt.Println("Correct. Game over.")
+			break
+		}
 	}
 }
 
