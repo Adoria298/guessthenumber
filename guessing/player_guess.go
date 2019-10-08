@@ -15,7 +15,6 @@ import (
 // PlayerGuessMainLoop - main loop that allows the player to guess
 func PlayerGuessMainLoop() {
 	fmt.Println("Guess a number between 1 and 100.")
-	fmt.Println("Please input your guess.")
 
 	secretNumber := generateRandomInteger(1, 100)
 

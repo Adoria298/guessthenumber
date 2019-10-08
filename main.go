@@ -7,6 +7,8 @@ import (
 	"os"
 	"strings"
 	"time"
+
+	"github.com/adoria298/guessthenumber/guessing"
 )
 
 func main() {
@@ -18,7 +20,7 @@ func main() {
 	input = strings.TrimSuffix(input, "\r\n")
 
 	if input == "Y" {
-		guessing.PlayerGuessMainLoop
+		guessing.PlayerGuessMainLoop()
 	}
 }
 
