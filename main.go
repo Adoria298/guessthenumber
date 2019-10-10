@@ -16,5 +16,9 @@ func main() {
 
 	if input == "Y" {
 		guessing.PlayerGuessMainLoop()
+	} else if input == "N" {
+		guessing.AIGuessMainLoop()
+	} else {
+		fmt.Println("I don't understand this input. Exiting.")
 	}
 }
