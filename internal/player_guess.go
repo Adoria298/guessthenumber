@@ -1,28 +1,24 @@
-package guessing
+package internal
 
 // based on freshman.tech/golang-guess/
 
 import (
 	"fmt"
-	"math/rand"
 	"strconv"
-	"time"
-
-	"github.com/adoria298/guessthenumber/sharedfuncs"
 )
 
 // PlayerGuessMainLoop - main loop that allows the player to guess
 func PlayerGuessMainLoop() {
 	fmt.Println("Guess a number between 1 and 100.")
 
-	secretNumber := sharedfuncs.GenerateRandomInteger(1, 100)
+	secretNumber := GenerateRandomInteger(1, 100)
 
 	var attempts int
 	for {
 		attempts++
 		fmt.Println("Please input your guess.")
 
-		input := sharedfuncs.ReadlnFromStdin("\r\n")
+		input := ReadlnFromStdin("\r\n")
 
 		guess, error := strconv.Atoi(input) // convert to integer
 		if error != nil {
@@ -42,9 +38,4 @@ func PlayerGuessMainLoop() {
 			break
 		}
 	}
-}
-
-func generateRandomInteger(min, max int) int {
-	rand.Seed(time.Now().Unix())
-	return rand.Intn(max-min) + min
 }

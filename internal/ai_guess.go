@@ -1,9 +1,7 @@
-package guessing
+package internal
 
 import (
 	"fmt"
-
-	"github.com/adoria298/guessthenumber/sharedfuncs"
 )
 
 // AIGuessMainLoop - main loop for AI version of the guessing game.
@@ -15,11 +13,11 @@ func AIGuessMainLoop() {
 	var attempts int
 	for {
 		attempts++
-		guess := sharedfuncs.GenerateRandomInteger(min, max)
+		guess := GenerateRandomInteger(min, max)
 		fmt.Println("Is this your number:", guess, "?")
 		fmt.Println("Input 'h' if it is higher than your number,",
 			"'e' if it is equal to it, and 'l' if it is lower.")
-		guessCorrect := sharedfuncs.ReadlnFromStdin("\r\n")
+		guessCorrect := ReadlnFromStdin("\r\n")
 		if guessCorrect == "e" {
 			fmt.Println("Yay! I got it!")
 			break

@@ -1,4 +1,4 @@
-package sharedfuncs
+package internal
 
 import (
 	"bufio"
